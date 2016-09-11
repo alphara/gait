@@ -17,29 +17,12 @@ var dasha = [
  [257, 2212, 1284, 16390, 4096, 4, 0, 416, 2641, 17472, 2080, 2144, 68, 34, 1024, 16384, 2056, 0, 1539, 16, 36, 16392, 0, 4112, 1539, 16, 36, 16392, 0, 4112, 0, 0, 2, 16456, 1536, 4096, 512, 3284, 18, 14464, 3072, 64, 82, 44, 72, 2048, 32, 512, 1088, 512, 192, 32, 17, 2048, 256, -2816, -1792, 8, 7168, 0, 520, 512, -1470, 2048, 1, 17, 1536, 2048, -960, 4096, 4098, 832, ],
 ];
 
-function normalize(arr) {
-  for (i in arr) {
-    for (j in arr[i]) {
-      if (j % 6 === 0) { }
-      if (j % 6 == 0) { }
-    }
-  }
-  return arr;
-};
-
 function lens(arr) {
   for (i in arr) {
     console.log('len:', arr[i].length);
   }
   return arr;
 };
-
-normalize(eduard);
-normalize(dasha);
-lens(eduard);
-lens(dasha);
-
-// console.log('eduard[0]:', eduard[0]);
 
 var x = [
   eduard[0],
@@ -50,10 +33,10 @@ var x = [
   dasha[2],
 ];
 
-var y =  [[1],
+var y =  [[1], // 1 is man
           [1],
           [1],
-          [0],
+          [0], // 0 is woman
           [0],
           [0]];
 
@@ -84,38 +67,5 @@ function multiLayerPerceptron() {
   console.log('');
 }
 
-function deepBeliefNetwork() {
-  console.log('Deep Belief Network');
-  console.log('');
-  var pretrain_lr = 0.6, pretrain_epochs = 900, k = 1, finetune_lr = 0.6, finetune_epochs = 500;
-
-  var dbn = new dnn.DBN({
-      'input' : x,
-      'label' : y,
-      'n_ins' : 72,
-      'n_outs' : 1,
-      'hidden_layer_sizes' : [10,12,11,8,6,4]
-  });
-
-  dbn.set('log level',1); // 0 : nothing, 1 : info, 2 : warning.
-
-  // Pre-Training using using RBM
-  dbn.pretrain({
-      'lr' : pretrain_lr,
-      'k' : k, // RBM CD-k.
-      'epochs' : pretrain_epochs
-  });
-
-  // Fine-Tuning dbn using mlp backpropagation.
-  dbn.finetune({
-      'lr' : finetune_lr,
-      'epochs' : finetune_epochs
-  });
-
-  console.log(dbn.predict(a));
-  console.log('');
-}
-
 multiLayerPerceptron();
-// deepBeliefNetwork();
 

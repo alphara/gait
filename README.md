@@ -10,6 +10,7 @@ Project from hackaton Neurohack in Moscow at 9-11 Sep 2016.
 ## Install and run
 
   npm install
+
   npm start
 
 
