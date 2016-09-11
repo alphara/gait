@@ -2,19 +2,14 @@
   "name": "gait",
   "version": "1.0.0",
   "description": "",
-  "main": "gait.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node --harmony gait.js"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alphara/gait.git"
-  },
   "author": "Artem Arakcheev",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/alphara/gait/issues"
-  },
-  "homepage": "https://github.com/alphara/gait#readme"
+  "dependencies": {
+    "dnn": "^0.1.0"
+  }
 }
